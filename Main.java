@@ -5,20 +5,25 @@ class Main {
     int x = 0;
     Scanner input = new Scanner(System.in);
     double sum = 0;
+    String isQuit = null;
     do {
       try {
         System.out.println("Enter a number, q to quit.");
-        String isQuit = input.next();
+        isQuit = input.next();
         if (isQuit.equals("q")) {
           x = 1;
         } else {
           x = 0;
+          double numberEntry = Double.parseDouble(isQuit);
+          sum = sum + numberEntry;
         }
-        double numberEntry = Double.parseDouble(isQuit);
-        sum = sum + numberEntry;
+
       } catch (Exception e) {
-        System.out.println("computer broke, call microsoft tech support");
+        System.out.print("java.lang.NumberFormatException: For input string ");
+        System.out.println(isQuit);
       }
     } while (x == 0);
+    System.out.println("your sum is " + sum);
   }
+
 }
